@@ -5,21 +5,13 @@ using System;
 
 namespace UnoApp.Shared.ViewModels
 {
-    public class IoC
+    public static class IoC
     {
         private static IServiceProvider _provider;
-        private static IServiceCollection _services => Startup.Services;
 
-        public static void RegisterContainer()
+        public static void SetServiceProvider(IServiceProvider provider)
         {
-            RegisterViewModels();
-
-            _provider = _services.BuildServiceProvider();
-        }
-
-        private static void RegisterViewModels()
-        {
-            RegisterViewModel<MainPageViewModel>();
+            _provider = provider;
         }
 
         public static T Resolve<T>() where T : class
@@ -30,11 +22,6 @@ namespace UnoApp.Shared.ViewModels
         public static Type Resolve(Type type)
         {
             return (Type)_provider.GetService(type);
-        }
-
-        private static void RegisterViewModel<T>() where T : class
-        {
-            _services.AddScoped<T>();
         }
     }
 }

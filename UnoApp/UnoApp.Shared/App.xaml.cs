@@ -37,8 +37,6 @@ namespace UnoApp
             this.Suspending += OnSuspending;
 
             Startup.Init();
-
-            IoC.RegisterContainer();
         }
 
         /// <summary>
