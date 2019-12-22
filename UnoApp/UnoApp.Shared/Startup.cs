@@ -5,14 +5,13 @@ using Microsoft.Extensions.Logging;
 using Polly;
 using System;
 using System.Reflection;
+using UnoApp.Shared.Configurations;
+using UnoApp.Shared.ViewModels;
 
 namespace UnoApp.Shared
 {
     public class Startup
     {
-        public static IServiceProvider ServiceProvider { get; private set; }
-        public static IServiceCollection Services { get; private set; }
-
         internal static void Init()
         {
             var assembly = Assembly.GetExecutingAssembly();
@@ -30,14 +29,13 @@ namespace UnoApp.Shared
                         abc.DisableColors = true;
                     }))
                     .Build();
-
-                ServiceProvider = host.Services;
             }
         }
 
         private static void ConfigureServices(HostBuilderContext ctx, IServiceCollection services)
         {
-            Services = services;
+            services.RegisterViewModels();
+            services.RegisterServices();
 
             var world = ctx.Configuration["Hello"];
             var baseUrl = ctx.Configuration["BaseUrl"];
@@ -56,6 +54,8 @@ namespace UnoApp.Shared
                     TimeSpan.FromSeconds(5),
                     TimeSpan.FromSeconds(10),
                 }));
+
+            IoC.SetServiceProvider(services.BuildServiceProvider());
         }
     }
 }
