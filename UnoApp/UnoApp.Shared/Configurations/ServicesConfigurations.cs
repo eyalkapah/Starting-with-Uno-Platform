@@ -9,6 +9,7 @@ namespace UnoApp.Shared.Configurations
         public static void RegisterViewModels(this IServiceCollection services)
         {
             services.AddScoped<MainPageViewModel>();
+            services.AddScoped<ViewAViewModel>();
         }
 
         public static void RegisterServices(this IServiceCollection services)

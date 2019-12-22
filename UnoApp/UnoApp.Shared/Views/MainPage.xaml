@@ -13,7 +13,8 @@
             <NavigationViewItem
                 Content="Menu Item1"
                 Icon="Play"
-                Tag="SamplePage1" />
+                Tag="SamplePage1"
+                Tapped="NavigationViewItem_Tapped" />
             <NavigationViewItem
                 Content="Menu Item2"
                 Icon="Save"

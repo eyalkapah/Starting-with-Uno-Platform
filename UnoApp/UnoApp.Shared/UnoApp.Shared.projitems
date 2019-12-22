@@ -20,15 +20,19 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Configurations\ServicesConfigurations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ServiceProviderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\NavigationItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\INavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\NavigationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Startup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\IoC.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\NavigationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewAViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\BasePage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\MainPageViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Views\ViewA.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ViewAPage.xaml.cs">
       <DependentUpon>$fileinputname$.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -49,7 +53,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Views\ViewA.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Views\ViewAPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

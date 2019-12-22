@@ -23,5 +23,12 @@ namespace UnoApp
             var navigationService = IoC.Resolve<INavigationService>();
             navigationService.SetContentFrame(MyContentFrame);
         }
+
+        private void NavigationViewItem_Tapped(object sender, Windows.UI.Xaml.Input.TappedRoutedEventArgs e)
+        {
+            var navigationService = IoC.Resolve<INavigationService>();
+
+            navigationService.Navigate<ViewAPage>();
+        }
     }
 }
