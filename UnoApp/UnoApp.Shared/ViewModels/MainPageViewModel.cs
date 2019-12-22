@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,11 @@ namespace UnoApp.Shared.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel()
+        public MainPageViewModel(IConfiguration config)
         {
             Title = "Hello Eyal";
+
+            var hello = config["Hello"];
         }
 
         public string Title { get; }

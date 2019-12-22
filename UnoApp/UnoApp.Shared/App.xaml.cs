@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -36,7 +37,9 @@ namespace UnoApp
             this.InitializeComponent();
             this.Suspending += OnSuspending;
 
-            Startup.Init();
+            var services = new ServiceCollection();
+            Startup.ConfigureServices(services);
+            //Startup.Init();
         }
 
         /// <summary>

@@ -1,4 +1,6 @@
-﻿using UnoApp.Shared.ViewModels;
+﻿using UnoApp.Shared.Services;
+using UnoApp.Shared.ViewModels;
+using UnoApp.Shared.Views;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -11,11 +13,15 @@ namespace UnoApp
     public sealed partial class MainPage : Page
     {
         public MainPageViewModel ViewModel => DataContext as MainPageViewModel;
+
         public MainPage()
         {
             this.InitializeComponent();
 
             DataContext = IoC.Resolve<MainPageViewModel>();
+
+            var navigationService = IoC.Resolve<INavigationService>();
+            navigationService.SetContentFrame(MyContentFrame);
         }
     }
 }
